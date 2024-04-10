@@ -11,7 +11,7 @@ type sheetForm = {
 };
 
 export async function POST(req: Request) {
-  const body = (await req.json()) as sheetForm;
+  const body = await req.json() as sheetForm;
 
   try {
     const auth = new google.auth.GoogleAuth({
