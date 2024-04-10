@@ -1,4 +1,3 @@
-import { NextResponse, NextRequest } from "next/server";
 import { google } from "googleapis";
 
 type sheetForm = {
@@ -11,7 +10,7 @@ type sheetForm = {
   memory?: string;
 };
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Response) {
   const body = (await req.json()) as sheetForm;
 
   try {
