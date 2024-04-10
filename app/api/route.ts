@@ -56,7 +56,13 @@ export async function POST(req: NextRequest) {
         body: {
           data: response.data,
         },
-      })
+      }),
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        status: 201,
+      }
     );
   } catch (err) {
     console.log(err);
