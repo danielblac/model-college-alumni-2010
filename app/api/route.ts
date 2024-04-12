@@ -4,15 +4,17 @@ import { google } from "googleapis";
 type sheetForm = {
   first_name: string;
   last_name: string;
-  dob?: string;
   phone: string;
   email?: string;
+  address: string;
+  state: string;
+  dob?: string;
+  class: string;
   occupation?: string;
-  memory?: string;
 };
 
 export async function POST(req: NextRequest) {
-  const body = await req.json() as sheetForm;
+  const body = (await req.json()) as sheetForm;
 
   try {
     const auth = new google.auth.GoogleAuth({
@@ -34,7 +36,7 @@ export async function POST(req: NextRequest) {
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "A1:G1",
+      range: "A1:I1",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
@@ -43,9 +45,11 @@ export async function POST(req: NextRequest) {
             body.last_name,
             body.phone,
             body.email,
+            body.address,
+            body.state,
             body.dob,
+            body.class,
             body.occupation,
-            body.memory,
           ],
         ],
       },

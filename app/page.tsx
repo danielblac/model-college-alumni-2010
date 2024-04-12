@@ -6,6 +6,7 @@ import dayjs, { Dayjs } from "dayjs";
 import { DemoItem } from "@mui/x-date-pickers/internals/demo";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Dialog } from "@mui/material";
+import Image from "next/image";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -16,9 +17,11 @@ export default function Home() {
     last_name: "",
     phone: "",
     email: "",
-    occupation: "",
-    memory: "",
+    address: "",
+    state: "",
     dob: "",
+    class: "",
+    occupation: "",
   });
 
   useEffect(() => {
@@ -52,8 +55,10 @@ export default function Home() {
         last_name: "",
         phone: "",
         email: "",
+        address: "",
+        state: "",
+        class: "",
         occupation: "",
-        memory: "",
         dob: "",
       });
     } catch (err) {
@@ -69,7 +74,12 @@ export default function Home() {
   return (
     <main>
       <div className="header">
-        <BsBank2 size={50} />
+        <Image
+          src="/images/logo.png"
+          alt="lsmco icon"
+          width={150}
+          height={150}
+        />
         <h1>L.M.S.C.O Class of 2010</h1>
         <p>
           This form provides your information to the admins for record purposes
@@ -153,6 +163,47 @@ export default function Home() {
             />
           </div>
         </div>
+        <p className="label">Address</p>
+        <div className="name">
+          <div className="input-div-full">
+            <TextField
+              id="filled-basic"
+              label="Address"
+              variant="filled"
+              required
+              value={formData.address}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                // setFullNameError(false);
+                setFormData({
+                  ...formData,
+                  address: e.target.value,
+                });
+              }}
+              fullWidth
+            />
+          </div>
+        </div>
+        <p className="label">State</p>
+        <div className="name">
+          <div className="input-div-full">
+            <TextField
+              id="filled-basic"
+              label="State"
+              variant="filled"
+              placeholder="Enter State of Origin"
+              required
+              value={formData.state}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                // setFullNameError(false);
+                setFormData({
+                  ...formData,
+                  state: e.target.value,
+                });
+              }}
+              fullWidth
+            />
+          </div>
+        </div>
         <p className="label">Date of Birth </p>
         <div className="name">
           <div className="input-div-full">
@@ -163,6 +214,27 @@ export default function Home() {
                 className="date-picker"
               />
             </DemoItem>
+          </div>
+        </div>
+        <p className="label">Class</p>
+        <div className="name">
+          <div className="input-div-full">
+            <TextField
+              id="filled-basic"
+              label="Class"
+              variant="filled"
+              placeholder="e.g SS3A"
+              required
+              value={formData.class}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                // setFullNameError(false);
+                setFormData({
+                  ...formData,
+                  class: e.target.value,
+                });
+              }}
+              fullWidth
+            />
           </div>
         </div>
         <p className="label">Occupation</p>
@@ -178,27 +250,6 @@ export default function Home() {
                 setFormData({
                   ...formData,
                   occupation: e.target.value,
-                });
-              }}
-              fullWidth
-            />
-          </div>
-        </div>
-        <p className="label">Memories at School</p>
-        <div className="name">
-          <div className="input-div-full">
-            <TextField
-              multiline
-              rows={5}
-              id="filled-basic"
-              label="Memories"
-              variant="filled"
-              value={formData.memory}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                // setFullNameError(false);
-                setFormData({
-                  ...formData,
-                  memory: e.target.value,
                 });
               }}
               fullWidth

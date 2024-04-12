@@ -18,7 +18,7 @@ body {
   font-family: "Satoshi", sans-serif;
   max-width: 1600px;
   margin: 1em auto;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+  background: linear-gradient(rgba(0, 146, 63, 0.2), rgba(0, 146, 63, 0.2)),
     url("/images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -28,17 +28,18 @@ body {
 main {
   max-width: 700px;
   margin: 0 auto;
-  background-color: #040d23cc;
-  color: #fefefe;
-  padding: 1em 2em 2em;
+  background-color: rgba(0, 146, 63, 0.9);
+  color: #fff;
+  padding: 1em 2em 2.5em;
 }
 
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 1em;
   padding-bottom: 1em;
-  border-bottom: 2px solid #fefefe;
+  border-bottom: 2px solid #fff;
 }
 
 .header h1 {
@@ -64,20 +65,21 @@ main {
 
 .input-div {
   width: 50%;
-  background-color: #dadbde;
+  background-color: #fff;
   border-radius: 4px;
   overflow: hidden;
 }
 
 .input-div-full {
   width: 100%;
-  background-color: #dadbde;
+  background-color: #fff;
   border-radius: 4px;
   overflow: hidden;
 }
 
 .date-picker {
   border-bottom: 1px solid #040d23;
+  background-color: #F0F0F0;
 }
 
 .date-picker:hover {
@@ -90,7 +92,7 @@ main {
 
 .button {
   width: 100%;
-  margin-top: 2em;
+  margin-top: 2.5em;
   display: flex;
   justify-content: center;
 }
@@ -98,12 +100,12 @@ main {
 .button button {
   padding: 0.8em 3em;
   border-radius: 2em;
-  background-color: #dadbde;
+  background-color: #F0F0F0;
   margin: 0 auto;
   border: none;
   font-size: 18px;
   font-weight: 700;
-  color: darkblue;
+  color: darkgreen;
   cursor: pointer;
 }
 
@@ -111,7 +113,7 @@ main {
   width: 300px;
   height: 100%;
   padding: 2em;
-  background-color: #FCFEFC;
+  background-color: #fcfefc;
   display: flex;
   gap: 0.5em;
   flex-direction: column;
