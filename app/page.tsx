@@ -18,6 +18,7 @@ export default function Home() {
     phone: "",
     email: "",
     address: "",
+    location: "",
     state: "",
     dob: "",
     class: "",
@@ -56,6 +57,7 @@ export default function Home() {
         phone: "",
         email: "",
         address: "",
+        location: "",
         state: "",
         class: "",
         occupation: "",
@@ -177,6 +179,27 @@ export default function Home() {
                 setFormData({
                   ...formData,
                   address: e.target.value,
+                });
+              }}
+              fullWidth
+            />
+          </div>
+        </div>
+        <p className="label">Current Location</p>
+        <div className="name">
+          <div className="input-div-full">
+            <TextField
+              id="filled-basic"
+              label="Current Location"
+              variant="filled"
+              placeholder="e.g Ojo, Lagos"
+              required
+              value={formData.location}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                // setFullNameError(false);
+                setFormData({
+                  ...formData,
+                  location: e.target.value,
                 });
               }}
               fullWidth

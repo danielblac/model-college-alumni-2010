@@ -7,6 +7,7 @@ type sheetForm = {
   phone: string;
   email?: string;
   address: string;
+  location: string;
   state: string;
   dob?: string;
   class: string;
@@ -36,7 +37,7 @@ export async function POST(req: NextRequest) {
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "A1:I1",
+      range: "A1:J1",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
@@ -46,6 +47,7 @@ export async function POST(req: NextRequest) {
             body.phone,
             body.email,
             body.address,
+            body.location,
             body.state,
             body.dob,
             body.class,
