@@ -10,7 +10,7 @@ import Image from "next/image";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
-  const [value, setValue] = useState<Dayjs | null>(dayjs(""));
+  const [value, setValue] = useState<Dayjs | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     first_name: "",
@@ -26,7 +26,7 @@ export default function Home() {
   });
 
   useEffect(() => {
-    const dateValue = value?.format("DD-MM-YYYY");
+    const dateValue = value?.format("MM-DD-YYYY");
 
     setFormData({
       ...formData,
@@ -154,6 +154,7 @@ export default function Home() {
               variant="filled"
               type="email"
               value={formData.email}
+              required
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 // setFullNameError(false);
                 setFormData({
@@ -235,6 +236,11 @@ export default function Home() {
                 value={value}
                 onChange={(newValue) => setValue(newValue)}
                 className="date-picker"
+                slotProps={{
+                  textField: {
+                    required: true,
+                  },
+                }}
               />
             </DemoItem>
           </div>
@@ -268,6 +274,7 @@ export default function Home() {
               label="Occupation"
               variant="filled"
               value={formData.occupation}
+              required
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 // setFullNameError(false);
                 setFormData({
