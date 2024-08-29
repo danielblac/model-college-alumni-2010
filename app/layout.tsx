@@ -4,7 +4,7 @@ import MUIDatePicker from "./material-ui-date/provider";
 import MUIProvider from "./material-ui/provider";
 
 export const metadata: Metadata = {
-  title: "L.S.M.C.O class of 2010 ",
+  title: "Model College 2010 Class",
   description: "Alimini members form",
 };
 
@@ -15,6 +15,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="icon"
+          href="/icon?<generated>"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/apple-icon?<generated>"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
+      </head>
       <body>
         <MUIProvider>
           <MUIDatePicker>{children}</MUIDatePicker>
